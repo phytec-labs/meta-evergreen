@@ -1,0 +1,45 @@
+From a3f96620725116057fd0bddc7e565cc6e9a67efd Mon Sep 17 00:00:00 2001
+From: tloan <tloan@phytec.com>
+Date: Sat, 20 May 2023 12:38:36 -0700
+Subject: [PATCH 2/3] Enabled the CAN interface on the dev kit
+
+Signed-off-by: tloan <tloan@phytec.com>
+---
+ arch/arm64/boot/dts/ti/k3-am62-phyboard-lyra.dtsi | 14 ++++++++++++++
+ 1 file changed, 14 insertions(+)
+
+diff --git a/arch/arm64/boot/dts/ti/k3-am62-phyboard-lyra.dtsi b/arch/arm64/boot/dts/ti/k3-am62-phyboard-lyra.dtsi
+index bcc552abe23a..2bdae67b42e6 100644
+--- a/arch/arm64/boot/dts/ti/k3-am62-phyboard-lyra.dtsi
++++ b/arch/arm64/boot/dts/ti/k3-am62-phyboard-lyra.dtsi
+@@ -22,6 +22,13 @@ aliases {
+ 		ethernet1 = &cpsw_port2;
+ 	};
+ 
++	can_tc1: can-phy0 {
++		compatible = "ti,tcan1042";
++		#phy-cells = <0>;
++		max-bitrate = <5000000>;
++		standby-gpios = <&gpio_exp 1 GPIO_ACTIVE_HIGH>;
++	};
++
+ 	gpio-keys {
+ 		compatible = "gpio-keys";
+ 		autorepeat;
+@@ -129,6 +136,13 @@ vcc_3v3_sw: fixed-regulator-vcc-3v3-sw {
+ 	};
+ };
+ 
++&main_mcan0 {
++	status = "okay";
++	pinctrl-names = "default";
++	pinctrl-0 = <&main_mcan0_pins_default>;
++	phys = <&can_tc1>;
++};
++
+ &main_pmx0 {
+ 	audio_ext_refclk1_pins_default: audio-ext-refclk1-pins-default {
+ 		pinctrl-single,pins = <
+-- 
+2.25.1
+
