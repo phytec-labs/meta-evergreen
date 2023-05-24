@@ -4,9 +4,11 @@ LICENSE = "CLOSED"
 
 FILESEXTRAPATHS:prepend := "${THISDIR}/${PN}:"
 
-SRC_URI:append = " file://0004-removed-unused-flow-control-pins-from-uart1.patch  \
-                   file://0005-Enabled-the-CAN-interface-on-the-dev-kit.patch  \
-                   file://0006-Setup-DRV-control-pins-in-case-its-needed-see-Notes.patch \
+SRC_URI:append = " file://0001-initial-commit-of-k3-am625-evergreen.dts-and-k3-am62.patch \
+		   file://0002-added-wifi-bt.patch \
+		   file://0003-removed-ethernet1.patch \
+		   file://0004-removed-HDMI.patch \
+		   file://0005-include-k3-am62-evegreen.dtsi-in-k3-am625-evergreen-.patch  \
                  "
 
-COMPATIBLE_MACHINE = "phyboard-lyra-am62xx"
+COMPATIBLE_MACHINE = "uw-board-am62-xx"
