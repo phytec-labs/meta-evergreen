@@ -1,0 +1,26 @@
+From ed1c0bc835e1ff074a9320b55041a74716aeba90 Mon Sep 17 00:00:00 2001
+From: Kadmobile <kaderkhafif@gmail.com>
+Date: Mon, 22 May 2023 21:53:08 +0000
+Subject: [PATCH 5/5] include k3-am62-evegreen.dtsi in
+ k3-am625-evergreen-rdk.dts
+
+---
+ arch/arm64/boot/dts/ti/k3-am625-evergreen-rdk.dts | 2 +-
+ 1 file changed, 1 insertion(+), 1 deletion(-)
+
+diff --git a/arch/arm64/boot/dts/ti/k3-am625-evergreen-rdk.dts b/arch/arm64/boot/dts/ti/k3-am625-evergreen-rdk.dts
+index f1a801826857..26301e5ba0a8 100644
+--- a/arch/arm64/boot/dts/ti/k3-am625-evergreen-rdk.dts
++++ b/arch/arm64/boot/dts/ti/k3-am625-evergreen-rdk.dts
+@@ -8,7 +8,7 @@
+ 
+ #include "k3-am625.dtsi"
+ #include "k3-am62-phycore-som.dtsi"
+-#include "k3-am62-phyboard-lyra.dtsi"
++#include "k3-am62-evergreen.dtsi"
+ 
+ / {
+ 	model = "PHYTEC phyBOARD-Lyra AM625";
+-- 
+2.17.1
+

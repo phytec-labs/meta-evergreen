@@ -1,0 +1,70 @@
+From 76b3c71cc05603960447323074563544fb4eea5e Mon Sep 17 00:00:00 2001
+From: Kadmobile <kaderkhafif@gmail.com>
+Date: Mon, 22 May 2023 14:00:05 -0700
+Subject: [PATCH 4/5] removed HDMI
+
+---
+ arch/arm64/boot/dts/ti/k3-am62-evergreen.dtsi | 40 -------------------
+ 1 file changed, 40 deletions(-)
+
+diff --git a/arch/arm64/boot/dts/ti/k3-am62-evergreen.dtsi b/arch/arm64/boot/dts/ti/k3-am62-evergreen.dtsi
+index cebfcdde257f..7f6aa59db2ae 100644
+--- a/arch/arm64/boot/dts/ti/k3-am62-evergreen.dtsi
++++ b/arch/arm64/boot/dts/ti/k3-am62-evergreen.dtsi
+@@ -55,16 +55,6 @@
+ 		};
+ 	};
+ 
+-	hdmi: connector {
+-		compatible = "hdmi-connector";
+-		label = "hdmi";
+-		type = "a";
+-		port {
+-			hdmi_connector_in: endpoint {
+-				remote-endpoint = <&sii9022_out>;
+-			};
+-		};
+-	};
+ 
+ 	sound {
+ 		compatible = "simple-audio-card";
+@@ -464,36 +454,6 @@
+ 		reg = <0x51>;
+ 	};
+ 
+-	hdmi_transmitter: hdmi-transmitter@39 {
+-		compatible = "sil,sii9022";
+-		reg = <0x39>;
+-		reset-gpios = <&gpio_exp 0 GPIO_ACTIVE_LOW>;
+-		interrupt-parent = <&main_gpio0>;
+-		interrupts = <16 IRQ_TYPE_EDGE_FALLING>;
+-		pinctrl-names = "default";
+-		pinctrl-0 = <&hdmi_int_pins_default>;
+-
+-		ports {
+-			#address-cells = <1>;
+-			#size-cells = <0>;
+-
+-			port@0 {
+-				reg = <0>;
+-
+-				sii9022_in: endpoint {
+-					remote-endpoint = <&dpi1_out>;
+-				};
+-			};
+-
+-			port@1 {
+-				reg = <1>;
+-
+-				sii9022_out: endpoint {
+-					remote-endpoint = <&hdmi_connector_in>;
+-				};
+-			};
+-		};
+-	};
+ 
+ 	typec_pd: usb-pd@22 {
+ 		compatible = "ti,tps6598x";
+-- 
+2.17.1
+

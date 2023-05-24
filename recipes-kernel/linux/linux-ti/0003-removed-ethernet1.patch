@@ -1,0 +1,35 @@
+From 647b8263ea7277ffa033fb6639ffd6e5d7a68117 Mon Sep 17 00:00:00 2001
+From: Kadmobile <kaderkhafif@gmail.com>
+Date: Mon, 22 May 2023 13:59:13 -0700
+Subject: [PATCH 3/5] removed ethernet1
+
+---
+ arch/arm64/boot/dts/ti/k3-am62-evergreen.dtsi | 5 -----
+ 1 file changed, 5 deletions(-)
+
+diff --git a/arch/arm64/boot/dts/ti/k3-am62-evergreen.dtsi b/arch/arm64/boot/dts/ti/k3-am62-evergreen.dtsi
+index aebe60ab4920..cebfcdde257f 100644
+--- a/arch/arm64/boot/dts/ti/k3-am62-evergreen.dtsi
++++ b/arch/arm64/boot/dts/ti/k3-am62-evergreen.dtsi
+@@ -34,7 +34,6 @@
+ 		usb0 = &usb0;
+ 		usb1 = &usb1;
+ 		ethernet0 = &cpsw_port1;
+-		ethernet1 = &cpsw_port2;
+ 	};
+ 
+ 	gpio-keys {
+@@ -365,10 +364,6 @@
+ 		     &main_rgmii2_pins_default>;
+ };
+ 
+-&cpsw_port2 {
+-	phy-mode = "rgmii-rxid";
+-	phy-handle = <&cpsw3g_phy3>;
+-};
+ 
+ &cpsw3g_mdio {
+ 	cpsw3g_phy3: ethernet-phy@3 {
+-- 
+2.17.1
+
